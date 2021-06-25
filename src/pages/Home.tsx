@@ -1,7 +1,4 @@
-
 import { useHistory } from 'react-router-dom';
-
-
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -41,6 +38,11 @@ export function Home() {
 
         if(!roomRef.exists()) {
             alert('Room does not exists.');
+            return;
+        }
+
+        if(roomRef.val().endedAt) {
+            alert('Room already closed.')
             return;
         }
 
